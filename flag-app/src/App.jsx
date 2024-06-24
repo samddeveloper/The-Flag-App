@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState("Light");
+
+  const toggleTheme = () => {
+    const newTheme = theme === "Light" ? "Dark" : "Light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   return (
     <>
-      <div>Hello World</div>
+      <Navbar toggleTheme={toggleTheme} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
