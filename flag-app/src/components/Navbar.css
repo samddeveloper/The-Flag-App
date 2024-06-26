@@ -1,0 +1,32 @@
+.navbar {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+   .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    justify-content: space-between;
+    margin-left: 200px;
+    margin-right: 200px;
+    
+  }
+  
+  .navbar-name {
+    font-size: 1rem;
+   
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+
+  .logo {
+    width: 150px;
+  }

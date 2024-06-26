@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [theme, setTheme] = useState("Light");
+  const [theme, setTheme] = useState("light");
+
+  useEffect (() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "Light" ? "Dark" : "Light";
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (
     <>
-      <Navbar toggleTheme={toggleTheme} />
+      <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
+      {/* <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/country/:name" element={<CountryPage />} />
+      </Routes> */}
     </>
   );
 }

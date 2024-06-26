@@ -1,15 +1,44 @@
 :root {
+  --background-color: #fafafa;
+  --element-background: #ffffff;
+  --text-color: #111517;
+  --input-color: #858585;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+    width: 100%;
+    box-sizing: border-box;
+    position: static;
+    
+    
 }
+
+[data-theme='dark'] {
+  --background-color: #202c37;
+  --element-background: #2b3945;
+  --text-color: #ffffff;
+  --input-color: #ffffff;
+  --navbar-background-color: #414d57; /*Navbars bakgrundsfärg i mörkt läge*/
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: var(--navbar-background-color);
+  transition: background-color 0.3s;
+}
+
+
+
 
