@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar";
 function App() {
   const [theme, setTheme] = useState("light");
 
-  useEffect (() => {
-    document.documentElement.setAttribute('data-theme', theme);
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -16,10 +16,6 @@ function App() {
   return (
     <>
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
-      {/* <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/country/:name" element={<CountryPage />} />
-      </Routes> */}
     </>
   );
 }
