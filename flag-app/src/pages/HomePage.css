@@ -1,5 +1,10 @@
 .home-page {
     padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    display: block;
+    
 }
 
 .search-filter {
@@ -13,4 +18,18 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
 }
+
+@media screen and (min-width:1200px) {
+    .home-page {
+        max-width: 1200px;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .home-page {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
 

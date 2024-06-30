@@ -34,9 +34,10 @@ const HomePage = () => {
   });
 
   return (
-    <div className="home-page">
+    <main>
+      <div className="home-page">
       <div className="search-filter">
-        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <Search SearchQuerry={searchQuery} setSearchQuerry={setSearchQuery} />
         <Dropdown selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
       </div>
       <div className="countries-grid">
@@ -49,6 +50,7 @@ const HomePage = () => {
         )}
       </div>
     </div>
+    </main>
   );
 };
 
