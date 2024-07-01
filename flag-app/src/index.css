@@ -4,6 +4,10 @@
   --text-color: #111517;
   --input-color: #858585;
   --button-hover-color: #f5f5f5; /* Hover-färg för ljus läge */
+  --search-hover-border-color-light: black; /* Ny variabel för hovring i light mode */
+  --search-hover-border-color-dark: white; /* Ny variabel för hovring i dark mode */
+  --border-color:#5c646a;
+
   font-family: Open-sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,6 +22,7 @@
   --input-color: #ffffff;
   --navbar-background-color: #414D57; /*Navbars bakgrundsfärg i mörkt läge*/
   --button-hover-color: #4d5862; /* Hover-färg för mörkt läge */
+  --search-hover-border-color-dark: white; /* Vit färg för hovring i dark mode */
 }
 
 body {
