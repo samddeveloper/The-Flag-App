@@ -2,6 +2,17 @@ import React from "react";
 import "./Search.css";
 
 const Search = ({ SearchQuerry, setSearchQuerry }) => {
+  const handleFocus = (e) => {
+    e.target.parentNode.classList.add('active-border');
+    e.target.previousSibling.classList.add('active');
+  };
+  
+  const handleBlur = (e) => {
+    if (!e.target.value) {
+      e.target.parentNode.classList.remove('active-border');
+      e.target.previousSibling.classList.remove('active');
+    }
+  };
   return (
     <div className="search-container">
       <label className={`search-placeholder ${SearchQuerry ? 'active' : ''}`} htmlFor="search-input">
@@ -12,12 +23,8 @@ const Search = ({ SearchQuerry, setSearchQuerry }) => {
         type="text"
         value={SearchQuerry}
         onChange={(e) => setSearchQuerry(e.target.value)}
-        onFocus={(e) => e.target.previousSibling.classList.add('active')}
-        onBlur={(e) => {
-          if (!e.target.value) {
-            e.target.previousSibling.classList.remove('active');
-          }
-        }}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
     </div>
   );
