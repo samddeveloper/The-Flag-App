@@ -1,35 +1,74 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Dropdown.css";
 
 const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
-  const handleFocus = (e) => {
-    e.target.parentNode.classList.add("active-border");
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const regions = [
+    { value: "", label: "All" },
+    { value: "Africa", label: "Africa" },
+    { value: "Americas", label: "America" },
+    { value: "Asia", label: "Asia" },
+    { value: "Europe", label: "Europe" },
+    { value: "Oceania", label: "Oceania" },
+  ];
+
+  const handleToggleDropdown = () => {
+    setIsOpen(prevOpenState => !prevOpenState); // Toggle isOpen
   };
 
-  const handleBlur = (e) => {
-    e.target.parentNode.classList.remove("active-border");
+  const handleRegionChange = (value) => {
+    setSelectedRegion(value);
+    setIsOpen(false);
   };
 
-  const handleRegionChange = (event) => {
-    setSelectedRegion(event.target.value);
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
   };
+
+  const handleFocus = () => {
+    setIsOpen(true);
+  };
+
+  const handleBlur = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="dropdown-container">
+    <div
+      className={`dropdown-container ${isOpen ? "active-border" : ""}`}
+      ref={dropdownRef}
+      tabIndex={0} 
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       <p className="region-title">Region</p>
-      <select
-        value={selectedRegion}
-        onChange={handleRegionChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      >
-        <option value="">All</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
+      <div className="selected-item" onClick={handleToggleDropdown}>
+        {selectedRegion || "All"}
+      </div>
+      {isOpen && (
+        <ul className="dropdown-list">
+          {regions.map((region) => (
+            <li
+              key={region.value}
+              className={`dropdown-item ${selectedRegion === region.value ? "selected" : ""}`}
+              onClick={() => handleRegionChange(region.value)}
+            >
+              {region.label}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
