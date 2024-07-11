@@ -56,7 +56,9 @@
     border-color: var(--search-hover-border-color-light);
   }
   
-  
+  [data-theme="dark"] label {
+    color: var(--placeholder-color);
+  }
   
   [data-theme="dark"] .search-container:hover {
     border-color: var(--search-hover-border-color-dark);

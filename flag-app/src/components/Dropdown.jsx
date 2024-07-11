@@ -52,10 +52,13 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
-      <p className="region-title">Region</p>
+      
       <div className="selected-item" onClick={handleToggleDropdown}>
-        {selectedRegion || "All"}
+        {selectedRegion || ""}
       </div>
+      {/* Placeholder */}
+      {!selectedRegion && <span className="search-placeholder">Region</span>}
+      
       {isOpen && (
         <ul className="dropdown-list">
           {regions.map((region) => (
