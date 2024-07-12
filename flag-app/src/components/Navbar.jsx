@@ -15,7 +15,7 @@ const Navbar = ({ toggleTheme, currentTheme }) => {
           <img src={logoSrc} alt="Logo" className="logo" />
           <div className="navbar-actions">
             <button onClick={toggleTheme} className="theme-toggle">
-              {currentTheme === "light" ? "🌙 DARK MODE" : "☀️ LIGHT MODE"}
+              {currentTheme === "light" ? "🌙 LIGHT MODE" : "☀️ DARK MODE"}
             </button>
           </div>
         </nav>

@@ -99,10 +99,7 @@
 }
 
 .arrow-icon {
-  width: 16px;
-  height: 16px;
   margin-left: auto;
-  cursor: pointer;
   display: flex;
   align-items: center;
 }
@@ -154,5 +151,6 @@
 [data-theme="dark"] .dropdown-container.active-border .search-placeholder {
   color: var(--search-hover-border-color-dark); /* Apply dark mode active color */
 }
+
 
 

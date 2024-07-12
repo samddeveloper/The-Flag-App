@@ -4,7 +4,9 @@
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+  a {
+    text-decoration: none;
+  }
   .country-card img {
     width: 100%;
     height: 150px;
@@ -13,13 +15,17 @@
   
   .country-card .country-info {
     padding: 1rem;
+    
+
   }
   
   .country-card .country-info h3 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
   }
   
   .country-card .country-info p {
     margin: 0.5rem 0;
+    font: 1px;
   }
