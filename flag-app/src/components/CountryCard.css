@@ -1,11 +1,12 @@
 .country-card {
-    background-color: var(--element-background);
+    background-color: var(--countrycard-container);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   a {
     text-decoration: none;
+    font-weight: 600;
   }
   .country-card img {
     width: 100%;
@@ -15,12 +16,11 @@
   
   .country-card .country-info {
     padding: 1rem;
-    
-
+    color: var(--text-color);
   }
   
   .country-card .country-info h3 {
-    margin: 0;
+    margin-bottom: 0;
     font-size: 1rem;
     color: var(--text-color);
   }
@@ -29,3 +29,5 @@
     margin: 0.5rem 0;
     font: 1px;
   }
+
+ 

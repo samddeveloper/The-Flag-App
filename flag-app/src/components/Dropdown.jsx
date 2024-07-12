@@ -46,12 +46,27 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
     };
   }, []);
 
-  const [arrowSrc, setArrowSrc] = useState(arrowDownLight);
+  const [arrowSrc, setArrowSrc] = useState(
+    document.body.dataset.theme === "dark" ? arrowDownDark : arrowDownLight
+  );
 
   useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const theme = document.body.dataset.theme;
+      setArrowSrc(theme === "dark" ? arrowDownDark : arrowDownLight);
+    });
+
+    observer.observe(document.body, {attributes: true, attributeFilter: ["data-theme"], });
+    
+    // Initial update in case the theme changes after the component is mounted
     const theme = document.body.dataset.theme;
     setArrowSrc(theme === "dark" ? arrowDownDark : arrowDownLight);
-  }, [document.body.dataset.theme]);
+
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div
