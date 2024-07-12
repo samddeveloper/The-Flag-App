@@ -8,7 +8,7 @@
   --border-color:#CBCBCB;
   --placeholder-color: #6b6b6b; /* Darker placeholder color for light mode */
   --dropdown-element-hover: #F6F6F6;
-
+  
   font-family: Open-sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,6 +27,7 @@
   --search-hover-border-color-dark: white; /* Vit färg för hovring i dark mode */
   --placeholder-color: #C4C4C4; /* Placeholder color for dark mode */
   --dropdown-element-hover: #5a636c;
+
 }
 
 body {
@@ -34,5 +35,5 @@ body {
   padding: 0;
   min-height: 100vh;
   background-color: var(--background-color);
-  font-family:Arial, Helvetica, sans-serif
+  
 }

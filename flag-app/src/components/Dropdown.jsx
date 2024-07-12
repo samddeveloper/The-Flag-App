@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Dropdown.css";
+import arrowDownLight from "../assets/arrow-down-light.svg";
+import arrowDownDark from "../assets/arrow-down-dark.svg";
 
 const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +17,7 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
   ];
 
   const handleToggleDropdown = () => {
-    setIsOpen(prevOpenState => !prevOpenState); // Toggle isOpen
+    setIsOpen((prevOpenState) => !prevOpenState); // Toggle isOpen
   };
 
   const handleRegionChange = (value) => {
@@ -44,21 +46,31 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
     };
   }, []);
 
+  const [arrowSrc, setArrowSrc] = useState(arrowDownLight);
+
+  useEffect(() => {
+    const theme = document.body.dataset.theme;
+    setArrowSrc(theme === "dark" ? arrowDownDark : arrowDownLight);
+  }, [document.body.dataset.theme]);
+
   return (
     <div
       className={`dropdown-container ${isOpen ? "active-border" : ""}`}
       ref={dropdownRef}
-      tabIndex={0} 
+      tabIndex={0}
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
-      
       <div className="selected-item" onClick={handleToggleDropdown}>
         {selectedRegion || ""}
       </div>
-      {/* Placeholder */}
       {!selectedRegion && <span className="search-placeholder">Region</span>}
-      
+      <img
+        src={arrowSrc}
+        className="arrow-icon"
+        alt="Arrow Down"
+        onClick={handleToggleDropdown}
+      />
       {isOpen && (
         <ul className="dropdown-list">
           {regions.map((region) => (
