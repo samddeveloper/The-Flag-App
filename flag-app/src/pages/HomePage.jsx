@@ -31,7 +31,8 @@ const HomePage = () => {
       country.name.common.toLowerCase().includes(searchQuery.toLowerCase()) &&
       (selectedRegion ? country.region === selectedRegion : true)
     );
-  });
+  })
+  .sort ((a, b) => a.name.common.localeCompare(b.name.common));
 
   return (
     <main>
