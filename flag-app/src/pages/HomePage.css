@@ -16,7 +16,7 @@
 .countries-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 2rem;
+  gap: 4rem 2rem;
 }
 
 @media screen and (min-width: 1200px) {

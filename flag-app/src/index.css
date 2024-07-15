@@ -9,7 +9,10 @@
   --placeholder-color: #6b6b6b; /* Darker placeholder color for light mode */
   --dropdown-element-hover: #F6F6F6;
   --info-text-countrycard: #626262;
-  --countrycard-container: #F6F6F6;
+  --countrycard-container: #FFFFFF;
+  --dropdown-list: #FFFFFF;
+  --dropdown-list-hover:#f5f5f5;
+
   
   font-family: Open-sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -30,7 +33,12 @@
   --placeholder-color: #C4C4C4; /* Placeholder color for dark mode */
   --dropdown-element-hover: #5a636c;
   --info-text-countrycard: #CACED2;
-  --countrycard-container: #515B65;
+  --countrycard-container: #424e58; 
+  --countrycard-container-hover: #515B65;
+  --dropdown-list: #45505b;
+  --dropdown-list-hover: #545e68;
+
+  
 
 
 }
