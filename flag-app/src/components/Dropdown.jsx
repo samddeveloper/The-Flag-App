@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./Dropdown.css";
 import arrowDownLight from "../assets/arrow-down-light.svg";
 import arrowDownDark from "../assets/arrow-down-dark.svg";
@@ -10,31 +10,27 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
   const regions = [
     { value: "", label: "All" },
     { value: "Africa", label: "Africa" },
-    { value: "Americas", label: "America" },
+    { value: "Americas", label: "Americas" },
     { value: "Asia", label: "Asia" },
     { value: "Europe", label: "Europe" },
     { value: "Oceania", label: "Oceania" },
   ];
 
-  // Funktion för att hantera klick på dropdown-container
   const toggleDropdown = () => {
-    setIsOpen((prevOpenState) => !prevOpenState);
+    setIsOpen(!isOpen);
   };
 
-  // Funktion för att hantera regionval
   const handleRegionChange = (value) => {
     setSelectedRegion(value);
-    setIsOpen(false); // Stäng dropdown-menyn när en region väljs
+    setIsOpen(false);
   };
 
-  // Hantera klick utanför dropdown-container för att stänga menyn
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
-  // Lyssna efter klick utanför dropdown-container
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -42,7 +38,6 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
     };
   }, []);
 
-  // Hantera temaväxling med MutationObserver
   const [arrowSrc, setArrowSrc] = useState(
     document.body.dataset.theme === "dark" ? arrowDownDark : arrowDownLight
   );
@@ -55,7 +50,6 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
 
     observer.observe(document.body, { attributes: true, attributeFilter: ["data-theme"] });
 
-    // Uppdatera temat vid start
     const theme = document.body.dataset.theme;
     setArrowSrc(theme === "dark" ? arrowDownDark : arrowDownLight);
 
@@ -65,8 +59,8 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
   }, []);
 
   return (
-    <div className={`dropdown-container ${isOpen ? "active-border" : ""}`} ref={dropdownRef}>
-      <div className="selected-item" onClick={toggleDropdown}>
+    <div className={`dropdown-container ${isOpen ? "active-border" : ""}`} ref={dropdownRef} onClick={toggleDropdown}>
+      <div className="selected-item">
         {selectedRegion ? selectedRegion : ""}
       </div>
       <span className={`search-placeholder ${selectedRegion ? "fixed" : ""}`}>
@@ -76,7 +70,6 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
         src={arrowSrc}
         className="arrow-icon"
         alt="Arrow Down"
-        onClick={toggleDropdown}
       />
       {isOpen && (
         <ul className="dropdown-list">

@@ -34,23 +34,27 @@ const HomePage = () => {
   })
   .sort ((a, b) => a.name.common.localeCompare(b.name.common));
 
+  useEffect(() => {
+    console.log("Filtered Countries:", filteredCountries); 
+  }, [searchQuery, selectedRegion, countries]);
+
   return (
     <main>
       <div className="home-page">
-      <div className="search-filter">
-        <Search SearchQuerry={searchQuery} setSearchQuerry={setSearchQuery} />
-        <Dropdown selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
+        <div className="search-filter">
+          <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <Dropdown selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
+        </div>
+        <div className="countries-grid">
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            filteredCountries.map((country) => (
+              <CountryCard key={country.cca3} country={country} />
+            ))
+          )}
+        </div>
       </div>
-      <div className="countries-grid">
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          filteredCountries.map((country) => (
-            <CountryCard key={country.cca3} country={country} />
-          ))
-        )}
-      </div>
-    </div>
     </main>
   );
 };

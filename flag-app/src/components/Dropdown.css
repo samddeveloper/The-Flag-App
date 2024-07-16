@@ -46,11 +46,15 @@
   border-top: none;
   border-radius: 0 0 4px 4px;
   display: none;
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 3s ease-in-out; 
 }
 
 .dropdown-container.active-border .dropdown-list {
   display: block;
   background-color: var(--dropdown-list); 
+  max-height: 300px;
 }
 
 .dropdown-item {
@@ -83,7 +87,7 @@
   left: 10px;
   font-size: 16px;
   color: var(--placeholder-color);
-  transition: transform 0.2s, font-size 0.2s, color 0.2s, background-color 0.2s;
+  transition: transform 1s, font-size 0.2s, color 0.2s, background-color 0.2s;
 }
 
 .dropdown-container:focus .search-placeholder,
