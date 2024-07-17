@@ -38,13 +38,21 @@
   color: var(--text-color);
   font-weight: 500;
   padding: 6px 8px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .theme-toggle:hover {
   background-color: var(--button-hover-color);
   border-radius: 4px;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
 }
 
 .logo {
@@ -59,11 +67,23 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .logo {
+    display: none;
+  }
+  
+  
+}
+ 
+  
+
+
 @media screen and (min-width: 600px) {
   .container {
     padding-left: 24px;
     padding-right: 24px;
   }
+  
   
 }
 

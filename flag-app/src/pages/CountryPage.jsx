@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import SkeletonCountryDetails from '../components/SkeletonCountryDetails';
 import './CountryPage.css';
 
 const CountryPage = () => {
@@ -29,9 +30,10 @@ const CountryPage = () => {
 
     fetchCountry();
   }, [name]);
+  
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <SkeletonCountryDetails />;
   }
 
   if (!country) {
@@ -63,9 +65,11 @@ const CountryPage = () => {
             <div className="border-buttons">
               {country.borders && country.borders.length > 0 ? (
                 country.borders.map((border) => (
-                  <Link key={border} to={`/country/${border}`} className="border-button">
+                  <div className="buttons">
+                    <Link key={border} to={`/country/${border}`} className="border-button">
                     {border}
                   </Link>
+                  </div>
                 ))
               ) : (
                 <p>This country has no border countries</p>

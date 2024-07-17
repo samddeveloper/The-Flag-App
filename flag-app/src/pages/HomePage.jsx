@@ -3,6 +3,7 @@ import Search from '../components/Search';
 import Dropdown from '../components/Dropdown';
 import CountryCard from '../components/CountryCard';
 import './HomePage.css';
+import SkeletonCountryCard from '../components/SkeletonCountryCard';
 
 const HomePage = () => {
   const [countries, setCountries] = useState([]);
@@ -38,6 +39,8 @@ const HomePage = () => {
     console.log("Filtered Countries:", filteredCountries); 
   }, [searchQuery, selectedRegion, countries]);
 
+  const forceLoading = true;
+
   return (
     <main>
       <div className="home-page">
@@ -46,8 +49,8 @@ const HomePage = () => {
           <Dropdown selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
         </div>
         <div className="countries-grid">
-          {loading ? (
-            <p>Loading...</p>
+          {loading ?  (
+            Array.from({ length: 8 }).map((_, index) => <SkeletonCountryCard key={index} />)
           ) : (
             filteredCountries.map((country) => (
               <CountryCard key={country.cca3} country={country} />

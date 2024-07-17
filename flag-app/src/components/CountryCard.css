@@ -4,6 +4,11 @@
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.382);
   }
+
+  .country-card:hover {
+    background-color:   var(  --countrycard-container-hover);
+    transition:ease-in-out 0.2s;
+  }
   a {
     text-decoration: none;
     font-weight: 600;

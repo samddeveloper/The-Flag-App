@@ -1,0 +1,59 @@
+.skeleton-details {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-top: 50px;
+  }
+  
+  .skeleton-flag-large {
+    width: 100%;
+    max-width: 550px;
+    height: 300px; /* Adjust as needed */
+    background-color: var( --skeleton-flag); 
+    border-radius: 10px;
+  }
+  
+  .skeleton-info-large {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+  
+  .skeleton-title-large {
+    width: 50%;
+    height: 30px;
+    background-color: var( --skeleton-flag); 
+    border-radius: 4px;
+    margin-top: 0;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skeleton-text-large {
+    width: 80%;
+    height: 20px;
+    background-color: var( --skeleton-flag); 
+    border-radius: 4px;
+    margin: 0.5rem 0;
+  }
+  
+  .skeleton-border-countries {
+    margin-top: 2rem;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .skeleton-border-button {
+    width: 100px; /* Adjust as needed */
+    height: 32px;
+    background-color: var( --skeleton-flag); 
+    border-radius: 16px;
+  }
+  
