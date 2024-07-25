@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
 import { Routes, Route } from 'react-router-dom';
+import Navbar from "./components/Navbar";
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
+import Dropdown from "./components/Dropdown"; // Import Dropdown component
 import './index.css';
-import "./pages/CountryPage.css";  
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -23,8 +23,9 @@ function App() {
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/country/:name" element={<CountryPage />} />
+        <Route path="/country/:name" element={<CountryPage currentTheme={theme} />} />
       </Routes>
+      
     </>
   );
 }

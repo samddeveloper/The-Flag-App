@@ -1,5 +1,5 @@
 :root {
-  --background-color: #fafafa;
+  --background-color: #FFFFFF;
   --element-background: #ffffff;
   --text-color: #111517;
   --input-color: #858585;
@@ -13,9 +13,9 @@
   --dropdown-list: #FFFFFF;
   --dropdown-list-hover:#f5f5f5;
   --skeleton-flag: #EBEBEB;
-
+  --arrow-color: black;
   
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -39,6 +39,8 @@
   --dropdown-list: #45505b;
   --dropdown-list-hover: #545e68;
   --skeleton-flag: #687178;
+  --arrow-color: white;
+
 
   
 
@@ -50,5 +52,5 @@ body {
   padding: 0;
   min-height: 100vh;
   background-color: var(--background-color);
-  
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }

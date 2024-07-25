@@ -1,3 +1,4 @@
+/* HomePage.css */
 .home-page {
   padding: 2rem;
   margin-left: auto;
@@ -9,8 +10,8 @@
 .search-filter {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
-  height: 53px;
 }
 
 .countries-grid {
@@ -25,11 +26,34 @@
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
   .home-page {
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  .search-container {
+    width: 30%; /* Default width for search */
+  }
+
+  .dropdown-container {
+    width: 14%; /* Default width for dropdown */
+  }
 }
 
+@media screen and (max-width: 899px) {
+  .search-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
+  .search-container {
+    width: 100%; /* Full width for search on smaller screens */
+    margin-bottom: 1rem;
+  }
+
+  .dropdown-container {
+    width: 50%; /* Half width for dropdown on smaller screens */
+    margin-bottom: 1rem;
+  }
+}

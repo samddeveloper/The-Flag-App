@@ -3,9 +3,10 @@ import "./Dropdown.css";
 import arrowDownLight from "../assets/arrow-down-light.svg";
 import arrowDownDark from "../assets/arrow-down-dark.svg";
 
-const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
+const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [arrowSrc, setArrowSrc] = useState(currentTheme === "dark" ? arrowDownDark : arrowDownLight);
 
   const regions = [
     { value: "", label: "All" },
@@ -38,36 +39,17 @@ const Dropdown = ({ selectedRegion, setSelectedRegion }) => {
     };
   }, []);
 
-  const [arrowSrc, setArrowSrc] = useState(
-    document.body.dataset.theme === "dark" ? arrowDownDark : arrowDownLight
-  );
-
   useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const theme = document.body.dataset.theme;
-      setArrowSrc(theme === "dark" ? arrowDownDark : arrowDownLight);
-    });
-
-    observer.observe(document.body, { attributes: true, attributeFilter: ["data-theme"] });
-
-    const theme = document.body.dataset.theme;
-    setArrowSrc(theme === "dark" ? arrowDownDark : arrowDownLight);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+    setArrowSrc(currentTheme === "dark" ? arrowDownDark : arrowDownLight);
+  }, [currentTheme]);
 
   return (
     <div className={`dropdown-container ${isOpen ? "active-border" : ""}`} ref={dropdownRef} onClick={toggleDropdown}>
       <div className="selected-item">
-        {selectedRegion ? selectedRegion : ""}
+        {selectedRegion ? selectedRegion : "Region"}
       </div>
-      <span className={`search-placeholder ${selectedRegion ? "fixed" : ""}`}>
-        Region
-      </span>
       <img
-        src={arrowSrc}
+        src={arrowSrc} 
         className="arrow-icon"
         alt="Arrow Down"
       />

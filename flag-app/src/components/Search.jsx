@@ -21,9 +21,9 @@ const Search = ({ searchQuery, setSearchQuery }) => {
 
   return (
     <div className="search-container">
-      <label className={`search-placeholder ${searchQuery || searchQuery === '' ? 'active' : ''}`} htmlFor="search-input">
+      <label className={`search-placeholder ${searchQuery ? 'active' : ''}`} htmlFor="search-input">
         Search for a country
-      </label>
+        </label>
       <input
         id="search-input"
         type="text"

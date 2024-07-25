@@ -12,6 +12,9 @@
     rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 
 }
+.navbar-name h3 {
+  font-weight: 500;
+}
 
 .container {
   width: 100%;
@@ -72,25 +75,18 @@
     display: none;
   }
   
+
   
 }
  
   
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 375px) {
   .container {
     padding-left: 24px;
     padding-right: 24px;
   }
   
-  
-}
-
-@media screen and (min-width: 600px) {
-  .container {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
   
 }
