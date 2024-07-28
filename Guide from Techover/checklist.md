@@ -11,11 +11,11 @@ För att få godkänt måste min inlämning stämma överens med dessa punkter:
   - [ x ] CountryPage
 - [ x ] Användaren kan se alla länder på hemmaskärmen
 - [ x ] Användaren kan söka på ett land via ett sökfält
-- [ - ] Användaren kan filtrera efter länder baserat på deras region
+- [ x ] Användaren kan filtrera efter länder baserat på deras region
 - [ x ] Om en användare trycker på ett land från hemmaskärmen kommer de till en detaljerad vy av det landet.
-- [ - ] I detaljvyn visas grannländer. Användaren kan trycka på dessa för att navigera vidare till det valda landet.
+- [ x ] I detaljvyn visas grannländer. Användaren kan trycka på dessa för att navigera vidare till det valda landet.
 - [ x ] Användaren kan växla mellan light och dark mode via navbaren.
-- [ - ] När data laddas in i appen visas ett loading state för användaren.
+- [ x ] När data laddas in i appen visas ett loading state för användaren.
 - [ x ] Användaren kan navigera genom appen med hjälp av routes. D.v.s. användaren kan skriva i URL:en för att hoppa mellan de olika sidorna i appen.
 - [ ] Jag har deployat mitt projekt. En länk till projektet finns i links.md.
 - [ ] Jag har laddat upp mitt projekt på Github. En länk till projektet finns i links.md.
