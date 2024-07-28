@@ -12,8 +12,9 @@
     rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 
 }
-.navbar-name h3 {
-  font-weight: 500;
+.navbar-name div {
+  font-weight: 600;
+  font-size: 1.25rem;
 }
 
 .container {
@@ -29,6 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 64px;
 }
 
 

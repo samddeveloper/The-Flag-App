@@ -24,7 +24,7 @@
 .selected-item {
   display: flex;
   align-items: center;
-  color: var(--placeholder-color);
+  color: var(--text-color);
 }
 
 .arrow-icon {

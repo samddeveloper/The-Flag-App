@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
-import Dropdown from "./components/Dropdown"; // Import Dropdown component
 import './index.css';
 
 function App() {
@@ -22,10 +21,9 @@ function App() {
     <>
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage currentTheme={theme} />} />
         <Route path="/country/:name" element={<CountryPage currentTheme={theme} />} />
       </Routes>
-      
     </>
   );
 }

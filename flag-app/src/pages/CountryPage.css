@@ -25,8 +25,8 @@
   align-items: center;
   color: var(--text-color);
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 200;
+  font-size: 15px;
+  font-weight: 400;
   padding: 5px;
 }
 
@@ -63,7 +63,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+  gap: 1rem;
 
 }
 
@@ -75,6 +75,7 @@
 
 .country-info-row {
   margin-right: 40px;
+
 }
 
 .country-info h1 {
@@ -85,7 +86,7 @@
 }
 
 .country-info p {
-  margin: 0.5rem 0;
+  margin: 0.7rem 0;
   font-size: 1rem;
   color: var(--text-color);
 }
@@ -192,6 +193,10 @@
     width: 100%;
     max-width: 100%;
     border-radius: 10px;
+  }
+
+  .border-buttons {
+    max-width: 200px;
   }
 
 

@@ -12,7 +12,7 @@ const Navbar = ({ toggleTheme, currentTheme }) => {
       <div className="container">
         <nav className="navbar">
           <div className="navbar-name">
-            <h3>The Flag App</h3>
+          <div> The Flag App </div>
           </div>
           <img src={logoSrc} alt="Logo" className="logo" />
           <div className="navbar-actions">

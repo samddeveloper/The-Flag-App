@@ -5,7 +5,7 @@ import CountryCard from '../components/CountryCard';
 import './HomePage.css';
 import SkeletonCountryCard from '../components/SkeletonCountryCard';
 
-const HomePage = () => {
+const HomePage = ({ currentTheme }) => {
   const [countries, setCountries] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
@@ -39,14 +39,12 @@ const HomePage = () => {
     console.log("Filtered Countries:", filteredCountries); 
   }, [searchQuery, selectedRegion, countries]);
 
-  const forceLoading = true;
-
   return (
     <main>
       <div className="home-page">
         <div className="search-filter">
           <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          <Dropdown selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
+          <Dropdown selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} currentTheme={currentTheme} />
         </div>
         <div className="countries-grid">
           {loading ?  (

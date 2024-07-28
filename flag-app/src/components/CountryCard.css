@@ -37,9 +37,9 @@
   .country-card .country-info .span {
     display: flex;
     flex-direction: column;
-    margin-top: 14px;
     font-size: 14px;
     color: var(--info-text-countrycard);
+    gap: 4px;
   }
 
  

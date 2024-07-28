@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Dropdown.css";
 import arrowDownLight from "../assets/arrow-down-light.svg";
 import arrowDownDark from "../assets/arrow-down-dark.svg";
@@ -6,7 +6,8 @@ import arrowDownDark from "../assets/arrow-down-dark.svg";
 const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const [arrowSrc, setArrowSrc] = useState(currentTheme === "dark" ? arrowDownDark : arrowDownLight);
+
+  const arrowSrc = currentTheme === "dark" ? arrowDownLight : arrowDownDark;
 
   const regions = [
     { value: "", label: "All" },
@@ -17,21 +18,41 @@ const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
     { value: "Oceania", label: "Oceania" },
   ];
 
+  // Växlar mellan att visa och dölja dropdown-menyn
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleRegionChange = (value) => {
-    setSelectedRegion(value);
-    setIsOpen(false);
+  // Hanterar fokus på dropdown-komponenten
+  const handleFocus = () => {
+    dropdownRef.current.classList.add('active-border');
+    dropdownRef.current.querySelector('.search-placeholder').classList.add('active');
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
+  // Återställer placeholder när dropdown förlorar fokus
+  const handleBlur = () => {
+    if (!selectedRegion) {
+      dropdownRef.current.classList.remove('active-border');
+      dropdownRef.current.querySelector('.search-placeholder').classList.remove('active');
     }
   };
 
+  // Ändrar vald region och stänger dropdown
+  const handleRegionChange = (value) => {
+    setSelectedRegion(value);
+    setIsOpen(false);
+    handleBlur();
+  };
+
+  // Stänger dropdown när man klickar utanför
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+      handleBlur();
+    }
+  };
+
+  // Lägg till och ta bort eventlyssnare för att hantera klick utanför
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -39,17 +60,31 @@ const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
     };
   }, []);
 
+  // Aktiverar placeholder om en region är vald
   useEffect(() => {
-    setArrowSrc(currentTheme === "dark" ? arrowDownDark : arrowDownLight);
-  }, [currentTheme]);
+    if (selectedRegion) {
+      dropdownRef.current.querySelector('.search-placeholder').classList.add('active');
+    }
+  }, [selectedRegion]);
 
   return (
-    <div className={`dropdown-container ${isOpen ? "active-border" : ""}`} ref={dropdownRef} onClick={toggleDropdown}>
+    <div
+      className={`dropdown-container ${isOpen ? "active-border" : ""}`}
+      ref={dropdownRef}
+      onClick={toggleDropdown}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       <div className="selected-item">
-        {selectedRegion ? selectedRegion : "Region"}
+        <span className="search-placeholder">
+          Region
+        </span>
+        <span className="selected-region">
+          {selectedRegion || ""}
+        </span>
       </div>
       <img
-        src={arrowSrc} 
+        src={arrowSrc}
         className="arrow-icon"
         alt="Arrow Down"
       />
