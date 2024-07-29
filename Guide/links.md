@@ -1,2 +1,2 @@
-- [Github repository](https://ditt-repo-här)
-- [Deployat projekt](https://ditt-projekt-här)
+- [Github repository](https://github.com/samddeveloper/The-Flag-App)
+- [Deployat projekt](https://sammie-flag-app.netlify.app/)
