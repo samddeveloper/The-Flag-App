@@ -1,15 +1,15 @@
 .dropdown-container {
   position: relative;
-  width: 100%; /* Use 100% width to fill the container */
+  width: 100%; 
   background-color: transparent;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px; /* Add padding to position items correctly */
+  padding: 0 16px; 
   cursor: pointer;
-  height: 53px; /* Ensure consistent height */
+  height: 53px;
 }
 
 .dropdown-container.active-border {
@@ -76,7 +76,7 @@
   left: 10px;
   font-size: 16px;
   color: var(--placeholder-color);
-  transition: transform 1s, font-size 0.2s, color 0.2s, background-color 0.2s;
+  
   font-weight: 500;
 }
 
@@ -89,7 +89,7 @@
   color: var(--search-hover-border-color-light);
   background-color: var(--background-color);
   padding: 0 5px;
-  transform: translateY(0);
+  transform: none;
   transition: 0.2s ease-in-out;
 }
 

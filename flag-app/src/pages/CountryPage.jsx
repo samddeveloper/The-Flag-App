@@ -7,9 +7,9 @@ import arrowLeft from "../assets/arrow-left.svg";
 import './CountryPage.css';
 
 const CountryPage = ({ currentTheme }) => {
-  const { name } = useParams();
-  const [country, setCountry] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { name } = useParams(); // Hämtar landets namn från URL-parametrar
+  const [country, setCountry] = useState(null); // Tillstånd för landets data
+  const [loading, setLoading] = useState(true); // Tillstånd för att visa laddningsindikator
 
   useEffect(() => {
     const fetchCountry = async () => {
@@ -19,23 +19,23 @@ const CountryPage = ({ currentTheme }) => {
         let data = await response.json();
 
         if (!data.length || data.status === 404) {
-          // If the name is not found, try to fetch by country code
+          // Om namnet inte hittas, försök hämta med landskod
           response = await fetch(`https://restcountries.com/v3.1/alpha/${name}`);
           data = await response.json();
         }
 
-        setCountry(data[0]);
+        setCountry(data[0]); // Sätt landets data i tillståndet
       } catch (error) {
-        console.error('Error fetching country data:', error);
+        console.error('Error fetching country data:', error); // Hantera fel vid hämtning av data
       }
       setLoading(false);
     };
 
-    fetchCountry();
-  }, [name]);
+    fetchCountry(); // Anropa funktionen för att hämta landets data
+  }, [name]); // Körs när 'name' ändras
 
   if (loading) {
-    return <SkeletonCountryDetails />;
+    return <SkeletonCountryDetails />; // Visar laddningskomponent om data hämtas
   }
 
   if (!country) {
@@ -48,9 +48,9 @@ const CountryPage = ({ currentTheme }) => {
               alt={`${currentTheme === "dark" ? "Light" : "Dark"} Mode Icon`}
               className="arrow-icon"
             />
-            BACK
+            BACK {/* Länk för att gå tillbaka */}
           </Link>
-          <div>Country not found</div>
+          <div>Country not found</div> {/* Visar om landet inte hittas */}
         </div>
       </div>
     );
@@ -71,20 +71,20 @@ const CountryPage = ({ currentTheme }) => {
         </div>
 
         <div className="country-details">
-          <img src={country.flags.svg} alt={`${country.name.common} flag`} className="country-flag" />
+          <img src={country.flags.svg} alt={`${country.name.common} flag`} className="country-flag" /> {/* Visar landets flagga */}
           <div className="country-info">
-            <h1><strong>{country.name.common}</strong></h1>
+            <h1><strong>{country.name.common}</strong></h1> {/* Landets namn */}
             <div className="country-row">
               <div className="country-info-row">
-                <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
-                <p><strong>Region:</strong> {country.region}</p>
-                <p><strong>Capital:</strong> {country.capital}</p>
-                <p><strong>Native name:</strong> {country.name.nativeName ? Object.values(country.name.nativeName)[0].common : ''}</p>
+                <p><strong>Population:</strong> {country.population.toLocaleString()}</p> {/* Landets befolkning */}
+                <p><strong>Region:</strong> {country.region}</p> {/* Region */}
+                <p><strong>Capital:</strong> {country.capital}</p> {/* Huvudstad */}
+                <p><strong>Native name:</strong> {country.name.nativeName ? Object.values(country.name.nativeName)[0].common : ''}</p> {/* Inhemskt namn */}
               </div>
               <div className="country-info-row">
-                <p><strong>Top Level Domain:</strong> {country.tld.join(', ')}</p>
-                <p><strong>Currencies:</strong> {country.currencies ? Object.values(country.currencies).map(currency => currency.name).join(', ') : ''}</p>
-                <p><strong>Language:</strong> {country.languages ? Object.values(country.languages).join(', ') : ''}</p>
+                <p><strong>Top Level Domain:</strong> {country.tld.join(', ')}</p> {/* Toppdomän */}
+                <p><strong>Currencies:</strong> {country.currencies ? Object.values(country.currencies).map(currency => currency.name).join(', ') : ''}</p> {/* Valutor */}
+                <p><strong>Language:</strong> {country.languages ? Object.values(country.languages).join(', ') : ''}</p> {/* Språk */}
               </div>
             </div>
             <div className="border-countries">
@@ -101,7 +101,7 @@ const CountryPage = ({ currentTheme }) => {
                     </div>
                   ))
                 ) : (
-                  <p>This country has no border countries</p>
+                  <p>This country has no border countries</p> //* Visar om landet inte har gränsande länder */
                 )}
               </div>
             </div>

@@ -6,7 +6,6 @@ import arrowDownDark from "../assets/arrow-down-dark.svg";
 const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-
   const arrowSrc = currentTheme === "dark" ? arrowDownLight : arrowDownDark;
 
   const regions = [
@@ -31,24 +30,26 @@ const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
 
   // Återställer placeholder när dropdown förlorar fokus
   const handleBlur = () => {
-    if (!selectedRegion) {
+    if (!selectedRegion && !isOpen) {
       dropdownRef.current.classList.remove('active-border');
       dropdownRef.current.querySelector('.search-placeholder').classList.remove('active');
     }
   };
 
+
   // Ändrar vald region och stänger dropdown
   const handleRegionChange = (value) => {
     setSelectedRegion(value);
     setIsOpen(false);
-    handleBlur();
   };
 
   // Stänger dropdown när man klickar utanför
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
-      handleBlur();
+      if (selectedRegion) {
+        dropdownRef.current.classList.remove('active-border');
+      }
     }
   };
 
@@ -62,10 +63,15 @@ const Dropdown = ({ selectedRegion, setSelectedRegion, currentTheme }) => {
 
   // Aktiverar placeholder om en region är vald
   useEffect(() => {
-    if (selectedRegion) {
+    if (selectedRegion || isOpen) {
+      dropdownRef.current.classList.add('active-border');
       dropdownRef.current.querySelector('.search-placeholder').classList.add('active');
+    } else {
+      dropdownRef.current.classList.remove('active-border');
+      dropdownRef.current.querySelector('.search-placeholder').classList.remove('active');
     }
-  }, [selectedRegion]);
+  }, [selectedRegion, isOpen]);
+
 
   return (
     <div

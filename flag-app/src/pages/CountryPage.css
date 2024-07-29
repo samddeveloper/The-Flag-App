@@ -10,8 +10,8 @@
 }
 
 [data-theme="dark"] {
-  --text-color: #fff; /* Text color for dark theme */
-  --button-hover-color: #666; /* Hover color for buttons in dark theme */
+  --text-color: #fff; 
+  --button-hover-color: #666; 
 }
 
 .back-button-wrapper {
@@ -31,9 +31,9 @@
 }
 
 .back-button .arrow-icon {
-  width: 20px; /* Adjust as per your SVG size */
-  height: 20px; /* Adjust as per your SVG size */
-  margin-right: 10px; /* Space between image and text */
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; 
 }
 
 .back-button:hover {
